@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.billysaputra.preparation.R
-import com.billysaputra.preparation.data.Home
+import com.billysaputra.preparation.data.model.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager

@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.billysaputra.preparation.R
 import com.billysaputra.preparation.adapter.HomeAdapter
-import com.billysaputra.preparation.data.HomeResponse
+import com.billysaputra.preparation.data.model.HomeResponse
 import com.billysaputra.preparation.helper.Utils
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*

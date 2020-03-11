@@ -1,4 +1,4 @@
-package com.billysaputra.preparation.data
+package com.billysaputra.preparation.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

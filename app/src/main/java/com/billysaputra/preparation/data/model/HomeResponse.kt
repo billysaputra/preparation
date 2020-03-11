@@ -1,6 +1,8 @@
-package com.billysaputra.preparation.data
+package com.billysaputra.preparation.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -14,8 +16,8 @@ data class HomeResponse(
 
 @Parcelize
 data class Home(
-    @SerializedName("content_type") var contentType: String? = "",
     @SerializedName("id") var id: Int? = 0,
+    @SerializedName("content_type") var contentType: String? = "",
     @SerializedName("images") var images: List<String> = arrayListOf(),
     @SerializedName("name") var name: String? = ""
 ) : Parcelable

@@ -1,6 +1,6 @@
 package com.billysaputra.preparation.connection
 
-import com.billysaputra.preparation.data.MainResponse
+import com.billysaputra.preparation.data.model.MainResponse
 import com.billysaputra.preparation.helper.Constants
 import retrofit2.Call
 import retrofit2.http.GET
