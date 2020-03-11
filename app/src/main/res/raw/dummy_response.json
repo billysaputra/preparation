@@ -6,10 +6,11 @@
       "name": "Penawaran terbaik",
       "content_type": "CAROUSEL",
       "images": [
-        "",
-        "",
-        "",
-        ""
+        "https://s4.bukalapak.com/rev-banner/flash_banner/136713303/original/desktop_BazarHeboh_d4f0378d-a0cf-4b4e-a0d1-5323d24bb69e.jpeg.webp",
+        "https://s4.bukalapak.com/rev-banner/flash_banner/269010912/original/desktop_PromoGantengAsik_9df32104-2248-4578-b779-29f7818573ea.jpeg.webp",
+        "https://s4.bukalapak.com/rev-banner/flash_banner/472438624/original/desktop_TiketMudik_75c4eab9-ba82-4c89-b223-f4529e0ea92f.jpeg.webp",
+        "https://s4.bukalapak.com/rev-banner/flash_banner/275748153/original/desktop_TekaTekiMilyaran_f739c49c-1992-4f42-8a0f-9283ebd27ea9.jpeg.webp",
+        "https://s4.bukalapak.com/rev-banner/flash_banner/770051891/original/desktop_GadgetandFashionCampaign_a55b458e-93b9-48c4-9fe0-12983e7c0001.jpeg.webp"
       ]
     },
     {
@@ -17,12 +18,25 @@
       "name": "Flash Sale",
       "content_type": "SIX_GRID",
       "images": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+      ]
+    },
+    {
+      "id": 2266,
+      "name": "Best Deals",
+      "content_type": "SIX_GRID",
+      "images": [
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+        "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
       ]
     },
     {

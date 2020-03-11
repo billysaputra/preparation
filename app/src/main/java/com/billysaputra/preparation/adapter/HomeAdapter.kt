@@ -1,5 +1,6 @@
 package com.billysaputra.preparation.adapter
 
+import android.animation.ArgbEvaluator
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,9 @@ import com.billysaputra.preparation.R
 import com.billysaputra.preparation.data.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.viewpager.widget.ViewPager
+import kotlinx.android.synthetic.main.item_home_carousel.view.*
 import kotlinx.android.synthetic.main.item_home_six_grid.view.*
-
 
 /**
  * Created by Billy Saputra on 2020-03-10.
@@ -51,11 +53,11 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
         when(holder.itemViewType){
             TYPE_CAROUSEL ->{
                 holder as CarouselHolder
-                holder.setCarousel()
+                holder.setCarousel(home[position])
             }
             TYPE_SIX_GRID ->{
                 holder as SixGridViewHolder
-                holder.setupSixGridImage()
+                holder.setupSixGridImage(home[position])
             }
             TYPE_MENU ->{
                 holder as MenuViewHolder
@@ -65,13 +67,41 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
     }
 
     inner class CarouselHolder(item : View) : RecyclerView.ViewHolder(item){
-        fun setCarousel(){
+        fun setCarousel(home : Home){
+            val carouselAdapter = HomeCarouselAdapter(home.images)
+            val colors: IntArray = intArrayOf(
+                context.resources.getColor(R.color.colorAccent),
+                context.resources.getColor(R.color.colorPrimary),
+                context.resources.getColor(R.color.colorPrimaryDark)
+            )
+            val argbEvaluator = ArgbEvaluator()
+            itemView.vp_carousel.adapter = carouselAdapter
 
+            itemView.vp_carousel.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+                override fun onPageScrollStateChanged(state: Int) {
+
+                }
+
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                    if(position < (carouselAdapter.count-1) && position < (colors.size - 1)){
+                        itemView.vp_carousel.setBackgroundColor(
+                            argbEvaluator.evaluate(positionOffset,
+                            colors[position],
+                            colors[position+1])as Int)
+                    }else{
+                        itemView.vp_carousel.setBackgroundColor(colors[colors.size - 1])
+                    }
+                }
+
+                override fun onPageSelected(position: Int) {
+
+                }
+            })
         }
     }
 
     inner class SixGridViewHolder(item : View) : RecyclerView.ViewHolder(item){
-        fun setupSixGridImage() {
+        fun setupSixGridImage(home : Home) {
             val sixGridImageList : MutableList<Int> = arrayListOf()
             sixGridImageList.add(R.drawable.ratio_pref_1)
             sixGridImageList.add(R.drawable.ratio_pref_2)
@@ -80,14 +110,10 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             sixGridImageList.add(R.drawable.ratio_pref_5)
             sixGridImageList.add(R.drawable.ratio_pref_6)
 
-            //val gridSpacingItemDecoration = CustomGridItemDecoration(3,0, true)
-
+            itemView.tv_header.text = home.name
             itemView.rv_six_grid.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
-            //itemView.rv_six_grid.addItemDecoration(gridSpacingItemDecoration)
-
-            val sixGridImageAdapter = SixGridImageAdapter(context)
+            val sixGridImageAdapter = SixGridImageAdapter(context, home.images)
             itemView.rv_six_grid.adapter = sixGridImageAdapter
-            sixGridImageAdapter.reloadSixGridImage(sixGridImageList)
         }
     }
 

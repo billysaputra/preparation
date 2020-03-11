@@ -16,6 +16,6 @@ data class HomeResponse(
 data class Home(
     @SerializedName("content_type") var contentType: String? = "",
     @SerializedName("id") var id: Int? = 0,
-    @SerializedName("images") var images: List<String?>? = listOf(),
+    @SerializedName("images") var images: List<String> = arrayListOf(),
     @SerializedName("name") var name: String? = ""
 ) : Parcelable

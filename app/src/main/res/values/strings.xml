@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Bukalapak</string>
+    <string name="app_name">Preparation</string>
+    <string name="bukalapak">Bukalapak</string>
     <string name="tab_activity">Tab Activity</string>
     <string name="tab1">TAB 1</string>
     <string name="tab2">TAB 2</string>
