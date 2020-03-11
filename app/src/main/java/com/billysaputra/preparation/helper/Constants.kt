@@ -14,4 +14,9 @@ class Constants {
         const val GET_SOME_DATA = "/getsomedata"
         const val POST_SOME_DATA = "/postsomedata"
     }
+
+    object RequestBody{
+        const val BODY_1 = "BODY_1"
+        const val BODY_2 = "BODY_2"
+    }
 }

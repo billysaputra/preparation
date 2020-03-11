@@ -4,4 +4,6 @@
     <string name="tab1">TAB 1</string>
     <string name="tab2">TAB 2</string>
     <string name="double_back_pressed_to_exit">Tekan tombol kembali lagi untuk keluar</string>
+
+    <string name="view_type_exception">there is no type that matches the type %d + make sure your using types correctly</string>
 </resources>

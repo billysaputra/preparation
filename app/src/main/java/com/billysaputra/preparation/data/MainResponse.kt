@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
  * Created by Billy Saputra on 2020-03-10.
  */
 @Parcelize
-data class MainResponse(
+open class MainResponse(
     @SerializedName("message") var message: String? = "",
     @SerializedName("status") var status: String? = ""
 ) : Parcelable

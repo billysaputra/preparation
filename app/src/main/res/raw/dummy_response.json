@@ -1,0 +1,46 @@
+{
+  "status": "OK",
+  "home": [
+    {
+      "id": 2266,
+      "name": "Penawaran terbaik",
+      "content_type": "CAROUSEL",
+      "images": [
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 2266,
+      "name": "Flash Sale",
+      "content_type": "SIX_GRID",
+      "images": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 2266,
+      "name": "Penawaran terbaik",
+      "content_type": "MENU",
+      "images": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "message": null
+}
