@@ -1,6 +1,8 @@
 package com.billysaputra.preparation.helper
 
 import android.view.View
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.billysaputra.preparation.connection.RetrofitCallback
 import retrofit2.Call
 
@@ -13,6 +15,10 @@ fun <T> Call<T>.enqueue(callback: RetrofitCallback<T>.() -> Unit) {
     this.enqueue(callBackKt)
 }
 
+
+/**
+ * View
+ * */
 fun View.visible() {
     visibility = View.VISIBLE
 }
@@ -23,6 +29,17 @@ fun View.invisible() {
 
 fun View.gone(){
     visibility = View.GONE
+}
+
+/**
+ * Fragment Manager
+ * */
+
+fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+    val fragmentTransaction = beginTransaction()
+    fragmentTransaction.func()
+    fragmentTransaction.addToBackStack(null)
+    fragmentTransaction.commit()
 }
 
 

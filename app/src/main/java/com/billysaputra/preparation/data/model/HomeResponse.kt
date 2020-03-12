@@ -19,5 +19,12 @@ data class Home(
     @SerializedName("id") var id: Int? = 0,
     @SerializedName("content_type") var contentType: String? = "",
     @SerializedName("images") var images: List<String> = arrayListOf(),
-    @SerializedName("name") var name: String? = ""
+    @SerializedName("name") var name: String? = "",
+    @SerializedName("home_menu") var homeMenu: List<HomeMenu> = arrayListOf()
+) : Parcelable
+
+@Parcelize
+data class HomeMenu(
+    @SerializedName("menu_name") var menuName: String? = "",
+    @SerializedName("menu_image_url") var menuImageUrl: String? = ""
 ) : Parcelable

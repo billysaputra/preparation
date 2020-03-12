@@ -7,4 +7,8 @@
     <string name="double_back_pressed_to_exit">Tekan tombol kembali lagi untuk keluar</string>
 
     <string name="view_type_exception">there is no type that matches the type %d + make sure your using types correctly</string>
+
+    <!--Action-->
+    <string name="remove_fragment">Remove fragment</string>
+    <string name="see_all_promo">Lihat Semua Promo</string>
 </resources>

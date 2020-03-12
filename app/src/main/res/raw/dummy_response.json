@@ -28,6 +28,38 @@
     },
     {
       "id": 2266,
+      "name": "Menu Masa Kini",
+      "content_type": "MENU",
+      "images": null,
+      "home_menu": [
+        {
+          "menu_name": "Gaming",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Pulsa",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Komputer",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Gadget",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Pendidikan",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Kesehatan",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        }
+      ]
+    },
+    {
+      "id": 2266,
       "name": "Best Deals",
       "content_type": "SIX_GRID",
       "images": [
@@ -37,22 +69,6 @@
         "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
         "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
         "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
-      ]
-    },
-    {
-      "id": 2266,
-      "name": "Penawaran terbaik",
-      "content_type": "MENU",
-      "images": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
       ]
     }
   ],

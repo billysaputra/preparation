@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.billysaputra.preparation">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <permission android:name="com.billysaputra.preparation.READ_DATABASE" android:protectionLevel="normal"/>
-    <permission android:name="com.billysaputra.preparation.WRITE_DATABASE" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.billysaputra.preparation.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.billysaputra.preparation.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -18,12 +23,12 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <provider
-            android:authorities="com.billysaputra.preparation"
             android:name=".data.content_provider.SampleContentProvider"
+            android:authorities="com.billysaputra.preparation"
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.billysaputra.preparation.READ_DATABASE"
-            android:writePermission="com.billysaputra.preparation.WRITE_DATABASE"/>
+            android:writePermission="com.billysaputra.preparation.WRITE_DATABASE" />
 
         <activity
             android:name=".view.SplashActivity"
@@ -42,6 +47,9 @@
         <activity
             android:name=".view.TabActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.ExperimentActivity"
+            android:configChanges="orientation|screenSize" />
     </application>
 
 </manifest>

@@ -3,7 +3,9 @@ package com.billysaputra.preparation.connection
 import com.billysaputra.preparation.data.model.MainResponse
 import com.billysaputra.preparation.helper.Constants
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -16,4 +18,7 @@ interface APICollections {
         @Query("q1") query1: String,
         @Query("q2") query2: String
     ): Call<MainResponse>
+
+    @POST(Constants.UrlApi.POST_SOME_DATA)
+    fun postSomeData(@Body body: Map<String, String>): Call<MainResponse>
 }
