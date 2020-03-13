@@ -46,11 +46,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setOnClickListener() {
         btn_tab_activity.setOnClickListener {
-            //startActivity(Intent(this, TabActivity::class.java))
             startActivity(Intent(this, ExperimentActivity::class.java))
         }
         iv_chat.setOnClickListener {
-
+            startActivity(Intent(this, TabActivity::class.java))
         }
         iv_notification.setOnClickListener {
 

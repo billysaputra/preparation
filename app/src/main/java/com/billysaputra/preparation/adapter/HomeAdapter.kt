@@ -4,11 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.billysaputra.preparation.R
 import com.billysaputra.preparation.data.model.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
+import com.billysaputra.preparation.helper.CustomGridItemDecoration
 import kotlinx.android.synthetic.main.item_home_carousel.view.*
 import kotlinx.android.synthetic.main.item_home_menu.view.*
 import kotlinx.android.synthetic.main.item_home_six_grid.view.*
@@ -115,6 +118,7 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             itemView.rv_home_menu.layoutManager = GridLayoutManager(context,4, GridLayoutManager.VERTICAL, false)
             val homeMenuAdapter = MenuGridAdapter(home.homeMenu)
             itemView.rv_home_menu.adapter = homeMenuAdapter
+            //itemView.rv_home_menu.addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
         }
     }
 
