@@ -12,7 +12,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", '"https://"')
+        buildConfigField("String", "TMDB_API_KEY", '"f11f508267fb51bee6d3ca0cfab956fa"')
+        buildConfigField("String", "BASE_URL", '"https://api.bukalapak.com/v2/"')
     }
     buildTypes {
         release {

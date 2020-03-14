@@ -1,5 +1,8 @@
 package com.billysaputra.preparation.helper
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import java.io.IOException
