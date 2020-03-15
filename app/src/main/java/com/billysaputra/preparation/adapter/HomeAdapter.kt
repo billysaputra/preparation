@@ -10,9 +10,14 @@ import com.billysaputra.preparation.data.model.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.billysaputra.preparation.helper.CustomGridItemDecoration
 import com.billysaputra.preparation.helper.CustomLinearItemDecoration
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.item_home_carousel.view.*
 import kotlinx.android.synthetic.main.item_home_menu.view.*
+import kotlinx.android.synthetic.main.item_home_menu.view.rv_home_menu
+import kotlinx.android.synthetic.main.item_home_menu_without_header.view.*
+import kotlinx.android.synthetic.main.item_two_row_grid.view.*
 
 /**
  * Created by Billy Saputra on 2020-03-10.
@@ -22,13 +27,15 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
     private val TYPE_SIX_GRID = 1
     private val TYPE_MENU = 2
     private val TYPE_PROMO_BANNER = 3
+    private val TYPE_TWO_ROW_GRID = 4
 
     override fun getItemViewType(position: Int): Int {
         return when (home[position].contentType) {
             "CAROUSEL" -> TYPE_CAROUSEL
             "SIX_GRID" -> TYPE_SIX_GRID
             "MENU" -> TYPE_MENU
-            else -> TYPE_PROMO_BANNER
+            "PROMO_BANNER" -> TYPE_PROMO_BANNER
+            else -> TYPE_TWO_ROW_GRID
         }
     }
 
@@ -45,6 +52,9 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             }
             TYPE_PROMO_BANNER ->{
                 PromoBannerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
+            }
+            TYPE_TWO_ROW_GRID ->{
+                TwoRowGridViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu_without_header, parent, false))
             }
             else -> throw RuntimeException(context.getString(R.string.view_type_exception, viewType))
         }
@@ -71,6 +81,10 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             TYPE_PROMO_BANNER ->{
                 holder as PromoBannerViewHolder
                 holder.setPromoBanner(home[position])
+            }
+            TYPE_TWO_ROW_GRID ->{
+                holder as TwoRowGridViewHolder
+                holder.setTwoRowGrid(home[position])
             }
         }
     }
@@ -107,6 +121,14 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             val promoBannerAdapter = PromoBannerAdapter(home.promoBanners)
             itemView.rv_home_menu.adapter = promoBannerAdapter
             itemView.rv_home_menu.addItemDecoration(CustomLinearItemDecoration(context.resources.getDimension(R.dimen.padding_margin_8dp).toInt(), LinearLayoutManager.HORIZONTAL))
+        }
+    }
+
+    inner class TwoRowGridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun setTwoRowGrid(home: Home){
+            itemView.rv_home_menu.layoutManager = GridLayoutManager(context,2, GridLayoutManager.HORIZONTAL, false)
+            val twoRowGridAdapter = TwoRowGridAdapter(home)
+            itemView.rv_home_menu.adapter = twoRowGridAdapter
         }
     }
 

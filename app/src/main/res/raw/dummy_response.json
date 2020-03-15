@@ -70,6 +70,73 @@
         "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
         "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
       ]
+    },{
+      "id": 2268,
+      "name": "Menu Masa Kini",
+      "content_type": "TWO_ROW_GRID",
+      "images": null,
+      "home_menu": [
+        {
+          "menu_name": "Semua Menu",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "TopUp & Isi Pulsa",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Pantau Corona",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Tagihan",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Mobil 10rb",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Investasi",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },{
+          "menu_name": "Gratis Ongkir",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Pinjaman",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },{
+          "menu_name": "Bazar Diskon 60%",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Travel",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },{
+          "menu_name": "Belanja",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Asuransi",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "BukaMart",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Kupon",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },{
+          "menu_name": "Kasih Uang 105% Cashback",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        },
+        {
+          "menu_name": "Listrik Prabayar",
+          "menu_image_url": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png"
+        }
+      ]
     }
   ],
   "message": null
