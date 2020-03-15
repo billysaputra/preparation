@@ -60,6 +60,44 @@
     },
     {
       "id": 2266,
+      "name": "Top Products",
+      "content_type": "TOP_PRODUCT",
+      "images": null,
+      "top_products": [
+        {
+          "product_name": "PS4 Pro 50th Edition",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 8.9 jt"
+        },
+        {
+          "product_name": "Apple iPhone 11s Max",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 14.5 jt"
+        },
+        {
+          "product_name": "The Last of Us 2",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 1.1 jt"
+        },
+        {
+          "product_name": "Samsung Galaxy S20 Ultra",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 18.9 jt"
+        },
+        {
+          "product_name": "Google Nest Mini",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 899.9 rb"
+        },
+        {
+          "product_name": "Macbook Pro 2017 128GB SSD",
+          "product_image": "https://www.mayacentre.org.uk/wp-content/uploads/2017/05/GREEN-ICON-11.png",
+          "product_price": "Rp 15.9 jt"
+        }
+      ]
+    },
+    {
+      "id": 2266,
       "name": "Best Deals",
       "content_type": "SIX_GRID",
       "images": [

@@ -28,6 +28,7 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
     private val TYPE_MENU = 2
     private val TYPE_PROMO_BANNER = 3
     private val TYPE_TWO_ROW_GRID = 4
+    private val TYPE_TOP_PRODUCT = 5
 
     override fun getItemViewType(position: Int): Int {
         return when (home[position].contentType) {
@@ -35,7 +36,8 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             "SIX_GRID" -> TYPE_SIX_GRID
             "MENU" -> TYPE_MENU
             "PROMO_BANNER" -> TYPE_PROMO_BANNER
-            else -> TYPE_TWO_ROW_GRID
+            "TWO_ROW_GRID" -> TYPE_TWO_ROW_GRID
+            else -> TYPE_TOP_PRODUCT
         }
     }
 
@@ -55,6 +57,9 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             }
             TYPE_TWO_ROW_GRID ->{
                 TwoRowGridViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu_without_header, parent, false))
+            }
+            TYPE_TOP_PRODUCT ->{
+                TopProductViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
             }
             else -> throw RuntimeException(context.getString(R.string.view_type_exception, viewType))
         }
@@ -85,6 +90,10 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             TYPE_TWO_ROW_GRID ->{
                 holder as TwoRowGridViewHolder
                 holder.setTwoRowGrid(home[position])
+            }
+            TYPE_TOP_PRODUCT ->{
+                holder as TopProductViewHolder
+                holder.setTopProduct(home[position])
             }
         }
     }
@@ -120,7 +129,6 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             val promoBannerAdapter = PromoBannerAdapter(home.promoBanners)
             itemView.rv_home_menu.adapter = promoBannerAdapter
-            itemView.rv_home_menu.addItemDecoration(CustomLinearItemDecoration(context.resources.getDimension(R.dimen.padding_margin_8dp).toInt(), LinearLayoutManager.HORIZONTAL))
         }
     }
 
@@ -129,6 +137,15 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             itemView.rv_home_menu.layoutManager = GridLayoutManager(context,2, GridLayoutManager.HORIZONTAL, false)
             val twoRowGridAdapter = TwoRowGridAdapter(home)
             itemView.rv_home_menu.adapter = twoRowGridAdapter
+        }
+    }
+
+    inner class TopProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun setTopProduct(home: Home){
+            itemView.tv_header_menu.text = home.name
+            itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            val topProductAdapter = TopProductAdapter(home)
+            itemView.rv_home_menu.adapter = topProductAdapter
         }
     }
 
