@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Preparation</string>
     <string name="bukalapak">Bukalapak</string>
+    <string name="sample_price">Rp 48,5 rb</string>
     <string name="tab_activity">Tab Activity</string>
     <string name="tab1">TAB 1</string>
     <string name="tab2">TAB 2</string>

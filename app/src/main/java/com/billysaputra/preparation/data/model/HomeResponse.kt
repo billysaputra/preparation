@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class HomeResponse(
-    @SerializedName("home") var home: List<Home> = arrayListOf()
+    @SerializedName("home") var home: ArrayList<Home> = arrayListOf()
 ) : MainResponse(), Parcelable
 
 @Parcelize
@@ -20,11 +20,20 @@ data class Home(
     @SerializedName("content_type") var contentType: String? = "",
     @SerializedName("images") var images: List<String> = arrayListOf(),
     @SerializedName("name") var name: String? = "",
-    @SerializedName("home_menu") var homeMenu: List<HomeMenu> = arrayListOf()
+    @SerializedName("home_menu") var homeMenu: List<HomeMenu> = arrayListOf(),
+    @SerializedName("promo_banner") var promoBanners: List<PromoBanner> = arrayListOf(),
+    @SerializedName("top_products") var topProducts: List<TopProduct> = arrayListOf()
 ) : Parcelable
 
 @Parcelize
 data class HomeMenu(
     @SerializedName("menu_name") var menuName: String? = "",
     @SerializedName("menu_image_url") var menuImageUrl: String? = ""
+) : Parcelable
+
+@Parcelize
+data class TopProduct(
+    @SerializedName("product_name") var productName: String? = "",
+    @SerializedName("product_image") var productImage: String? = "",
+    @SerializedName("product_price") var productPrice: String? = ""
 ) : Parcelable

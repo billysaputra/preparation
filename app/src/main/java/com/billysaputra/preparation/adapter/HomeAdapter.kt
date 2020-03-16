@@ -4,17 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.billysaputra.preparation.R
 import com.billysaputra.preparation.data.model.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
-import com.billysaputra.preparation.helper.CustomGridItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.item_home_carousel.view.*
 import kotlinx.android.synthetic.main.item_home_menu.view.*
-import kotlinx.android.synthetic.main.item_home_six_grid.view.*
+import kotlinx.android.synthetic.main.item_home_menu.view.rv_home_menu
 
 /**
  * Created by Billy Saputra on 2020-03-10.
@@ -23,12 +21,18 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
     private val TYPE_CAROUSEL = 0
     private val TYPE_SIX_GRID = 1
     private val TYPE_MENU = 2
+    private val TYPE_PROMO_BANNER = 3
+    private val TYPE_TWO_ROW_GRID = 4
+    private val TYPE_TOP_PRODUCT = 5
 
     override fun getItemViewType(position: Int): Int {
         return when (home[position].contentType) {
             "CAROUSEL" -> TYPE_CAROUSEL
             "SIX_GRID" -> TYPE_SIX_GRID
-            else -> TYPE_MENU
+            "MENU" -> TYPE_MENU
+            "PROMO_BANNER" -> TYPE_PROMO_BANNER
+            "TWO_ROW_GRID" -> TYPE_TWO_ROW_GRID
+            else -> TYPE_TOP_PRODUCT
         }
     }
 
@@ -38,10 +42,19 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
                 CarouselHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_carousel, parent, false))
             }
             TYPE_SIX_GRID -> {
-                SixGridViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_six_grid, parent, false))
+                SixGridViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
             }
             TYPE_MENU -> {
                 MenuViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
+            }
+            TYPE_PROMO_BANNER ->{
+                PromoBannerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
+            }
+            TYPE_TWO_ROW_GRID ->{
+                TwoRowGridViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu_without_header, parent, false))
+            }
+            TYPE_TOP_PRODUCT ->{
+                TopProductViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
             }
             else -> throw RuntimeException(context.getString(R.string.view_type_exception, viewType))
         }
@@ -65,60 +78,70 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
                 holder as MenuViewHolder
                 holder.setMenu(home[position])
             }
+            TYPE_PROMO_BANNER ->{
+                holder as PromoBannerViewHolder
+                holder.setPromoBanner(home[position])
+            }
+            TYPE_TWO_ROW_GRID ->{
+                holder as TwoRowGridViewHolder
+                holder.setTwoRowGrid(home[position])
+            }
+            TYPE_TOP_PRODUCT ->{
+                holder as TopProductViewHolder
+                holder.setTopProduct(home[position])
+            }
         }
     }
 
-    inner class CarouselHolder(item : View) : RecyclerView.ViewHolder(item){
+    inner class CarouselHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setCarousel(home : Home){
             val carouselAdapter = HomeCarouselAdapter(home.images)
             itemView.vp_carousel.adapter = carouselAdapter
-
-            /*val colors: IntArray = intArrayOf(
-                context.resources.getColor(R.color.colorAccent),
-                context.resources.getColor(R.color.colorPrimary),
-                context.resources.getColor(R.color.colorPrimaryDark)
-            )
-            val argbEvaluator = ArgbEvaluator()
-
-            itemView.vp_carousel.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
-                override fun onPageScrollStateChanged(state: Int) {
-
-                }
-
-                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                    if(position < (carouselAdapter.count-1) && position < (colors.size - 1)){
-                        itemView.vp_carousel.setBackgroundColor(
-                            argbEvaluator.evaluate(positionOffset,
-                            colors[position],
-                            colors[position+1])as Int)
-                    }else{
-                        itemView.vp_carousel.setBackgroundColor(colors[colors.size - 1])
-                    }
-                }
-
-                override fun onPageSelected(position: Int) {
-
-                }
-            })*/
         }
     }
 
-    inner class SixGridViewHolder(item : View) : RecyclerView.ViewHolder(item){
+    inner class SixGridViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setupSixGridImage(home : Home) {
-            itemView.tv_header.text = home.name
-            itemView.rv_six_grid.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            itemView.tv_header_menu.text = home.name
+            itemView.rv_home_menu.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
             val sixGridImageAdapter = SixGridImageAdapter(context, home.images)
-            itemView.rv_six_grid.adapter = sixGridImageAdapter
+            itemView.rv_home_menu.adapter = sixGridImageAdapter
         }
     }
 
-    inner class MenuViewHolder(item : View) : RecyclerView.ViewHolder(item){
+    inner class MenuViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setMenu(home: Home){
             itemView.tv_header_menu.text = home.name
             itemView.rv_home_menu.layoutManager = GridLayoutManager(context,4, GridLayoutManager.VERTICAL, false)
             val homeMenuAdapter = MenuGridAdapter(home.homeMenu)
             itemView.rv_home_menu.adapter = homeMenuAdapter
             //itemView.rv_home_menu.addItemDecoration(DividerItemDecoration(context, LinearLayout.VERTICAL))
+        }
+    }
+
+    inner class PromoBannerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+        fun setPromoBanner(home : Home){
+            itemView.tv_header_menu.text = "Promo Banner"
+            itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            val promoBannerAdapter = PromoBannerAdapter(home.promoBanners)
+            itemView.rv_home_menu.adapter = promoBannerAdapter
+        }
+    }
+
+    inner class TwoRowGridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun setTwoRowGrid(home: Home){
+            itemView.rv_home_menu.layoutManager = GridLayoutManager(context,2, GridLayoutManager.HORIZONTAL, false)
+            val twoRowGridAdapter = TwoRowGridAdapter(home)
+            itemView.rv_home_menu.adapter = twoRowGridAdapter
+        }
+    }
+
+    inner class TopProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun setTopProduct(home: Home){
+            itemView.tv_header_menu.text = home.name
+            itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            val topProductAdapter = TopProductAdapter(home)
+            itemView.rv_home_menu.adapter = topProductAdapter
         }
     }
 

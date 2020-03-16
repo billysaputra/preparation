@@ -8,11 +8,16 @@ import com.billysaputra.preparation.BuildConfig
 class Constants {
     companion object{
         const val BASE_URL = BuildConfig.BASE_URL
+        const val API_KEY = BuildConfig.TMDB_API_KEY
     }
 
     object UrlApi{
         const val GET_SOME_DATA = "/getsomedata"
         const val POST_SOME_DATA = "/postsomedata"
+
+        //TEST
+        const val GET_PROMO_BANNERS = "products/promo_banners.json?version=2"
+        const val GET_MOVIE = "/3/discover/movie"
     }
 
     object RequestBody{
