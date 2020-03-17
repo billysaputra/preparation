@@ -31,6 +31,7 @@ class PromoBannerAdapter(var promoBannerList : List<PromoBanner>) : RecyclerView
                 .load(promoBanner.image)
                 .apply(Utils.glideRequestOptions(R.drawable.ic_placeholder))
                 .into(itemView.iv_banner)
+            itemView.tv_promo_desc.text = promoBanner.description
         }
     }
 }

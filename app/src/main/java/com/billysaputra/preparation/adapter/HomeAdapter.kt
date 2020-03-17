@@ -10,6 +10,7 @@ import com.billysaputra.preparation.data.model.Home
 import java.lang.RuntimeException
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.billysaputra.preparation.data.model.Category
 import kotlinx.android.synthetic.main.item_home_carousel.view.*
 import kotlinx.android.synthetic.main.item_home_menu.view.*
 import kotlinx.android.synthetic.main.item_home_menu.view.rv_home_menu
@@ -24,6 +25,7 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
     private val TYPE_PROMO_BANNER = 3
     private val TYPE_TWO_ROW_GRID = 4
     private val TYPE_TOP_PRODUCT = 5
+    private val TYPE_CATEGORIES = 6
 
     override fun getItemViewType(position: Int): Int {
         return when (home[position].contentType) {
@@ -32,7 +34,8 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             "MENU" -> TYPE_MENU
             "PROMO_BANNER" -> TYPE_PROMO_BANNER
             "TWO_ROW_GRID" -> TYPE_TWO_ROW_GRID
-            else -> TYPE_TOP_PRODUCT
+            "TOP_PRODUCT" -> TYPE_TOP_PRODUCT
+            else -> TYPE_CATEGORIES
         }
     }
 
@@ -55,6 +58,9 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
             }
             TYPE_TOP_PRODUCT ->{
                 TopProductViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
+            }
+            TYPE_CATEGORIES ->{
+                CategoriesViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_home_menu, parent, false))
             }
             else -> throw RuntimeException(context.getString(R.string.view_type_exception, viewType))
         }
@@ -90,12 +96,16 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
                 holder as TopProductViewHolder
                 holder.setTopProduct(home[position])
             }
+            TYPE_CATEGORIES ->{
+                holder as CategoriesViewHolder
+                holder.setCategories(home[position])
+            }
         }
     }
 
     inner class CarouselHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setCarousel(home : Home){
-            val carouselAdapter = HomeCarouselAdapter(home.images)
+            val carouselAdapter = HomeCarouselAdapter(home.flashBanner)
             itemView.vp_carousel.adapter = carouselAdapter
         }
     }
@@ -121,7 +131,7 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
 
     inner class PromoBannerViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setPromoBanner(home : Home){
-            itemView.tv_header_menu.text = "Promo Banner"
+            itemView.tv_header_menu.text = context.getString(R.string.today_promo)
             itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             val promoBannerAdapter = PromoBannerAdapter(home.promoBanners)
             itemView.rv_home_menu.adapter = promoBannerAdapter
@@ -138,10 +148,19 @@ class HomeAdapter(private val context: Context, private val home : List<Home>) :
 
     inner class TopProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         fun setTopProduct(home: Home){
-            itemView.tv_header_menu.text = home.name
+            itemView.tv_header_menu.text = context.getString(R.string.top_products)
             itemView.rv_home_menu.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            val topProductAdapter = TopProductAdapter(home)
+            val topProductAdapter = TopProductAdapter(home.products)
             itemView.rv_home_menu.adapter = topProductAdapter
+        }
+    }
+
+    inner class CategoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        fun setCategories(home : Home){
+            itemView.tv_header_menu.text = context.getString(R.string.category_product)
+            itemView.rv_home_menu.layoutManager = GridLayoutManager(context,2, GridLayoutManager.HORIZONTAL, false)
+            val categoriesAdapter = CategoriesAdapter(home.categories as ArrayList<Category>)
+            itemView.rv_home_menu.adapter = categoriesAdapter
         }
     }
 

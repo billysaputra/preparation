@@ -21,28 +21,14 @@
         android:layout_centerInParent="true"
         android:padding="@dimen/padding_margin_16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vp_carousel"
+        app:layout_constraintTop_toTopOf="parent"
         app:piv_animationType="scale"
         app:piv_dynamicCount="true"
         app:piv_interactiveAnimation="true"
-        app:piv_selectedColor="@color/bluebl"
-        app:piv_unselectedColor="@color/greybl"
+        app:piv_selectedColor="@color/colorPrimary"
+        app:piv_unselectedColor="@android:color/white"
         app:piv_viewPager="@id/vp_carousel"
         attrs:piv_padding="12dp"
         attrs:piv_radius="8dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/padding_margin_8dp"
-        android:layout_marginRight="@dimen/padding_margin_8dp"
-        android:padding="@dimen/padding_margin_4dp"
-        android:text="@string/see_all_promo"
-        android:textColor="@color/bluebl"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vp_carousel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

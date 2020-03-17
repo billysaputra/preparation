@@ -18,15 +18,3 @@ data class PromoBanner(
     @SerializedName("info")
     var info: Info? = Info()
 ) : Parcelable
-
-@Parcelize
-data class Info(
-    @SerializedName("id")
-    var id: Int? = 0,
-    @SerializedName("promo_due")
-    var promoDue: String? = "",
-    @SerializedName("type")
-    var type: String? = "",
-    @SerializedName("url")
-    var url: String? = ""
-) : Parcelable

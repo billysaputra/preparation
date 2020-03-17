@@ -16,8 +16,10 @@ class Constants {
         const val POST_SOME_DATA = "/postsomedata"
 
         //TEST
+        const val GET_FLASH_BANNER= "flash_banners.json"
+        const val GET_CATEGORIES = "categories.json"
         const val GET_PROMO_BANNERS = "products/promo_banners.json?version=2"
-        const val GET_MOVIE = "/3/discover/movie"
+        const val GET_POPULAR_PRODUCTS = "products/populars_v2.json"
     }
 
     object RequestBody{

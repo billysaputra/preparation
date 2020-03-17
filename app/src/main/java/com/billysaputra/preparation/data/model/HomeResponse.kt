@@ -22,7 +22,9 @@ data class Home(
     @SerializedName("name") var name: String? = "",
     @SerializedName("home_menu") var homeMenu: List<HomeMenu> = arrayListOf(),
     @SerializedName("promo_banner") var promoBanners: List<PromoBanner> = arrayListOf(),
-    @SerializedName("top_products") var topProducts: List<TopProduct> = arrayListOf()
+    @SerializedName("products") var products: List<Product> = arrayListOf(),
+    @SerializedName("flash_banner") var flashBanner: List<Banner> = arrayListOf(),
+    @SerializedName("categories") var categories: List<Category> = arrayListOf()
 ) : Parcelable
 
 @Parcelize
